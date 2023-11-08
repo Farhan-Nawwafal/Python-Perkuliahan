@@ -7,14 +7,13 @@ Program : PenjualanBarang
 import os
 
 # memasukkan kode barang
-KodeBrg = str(input("Masukkan Kode Barang : "));
-print(type(KodeBrg));
+KodeBrg = str(input("Masukkan Kode Barang             : "));
 # validasi kode barang
 if((KodeBrg != "PK01") and (KodeBrg != "TS02") and (KodeBrg != "SP03") and (KodeBrg != "AK04")):
     print("Salah memasukkan kode barang!");
 else:
     # memasukkan jumlah barang yang dibeli
-    Jumlah = int(input("Masukkan jumlah barang :"));
+    Jumlah = int(input("Masukkan jumlah barang           : "));
 
     # inisialisasi besar diskon
     BesarDiskon = 0;
@@ -22,12 +21,12 @@ else:
     # validasi jumlah jika jumlah > 0.5 * kodi (1 kodi = 20 buah)
     if(Jumlah >= 10):
         # Memasukkan ada diskon atau ga
-        AdaDiskon = str(input("Ada diskon atau ga ? [Ya/Tidak] : "));
+        AdaDiskon = str(input("Ada diskon atau ga ? [Ya/Tidak]  : "));
         
         # validasi ada diskon atau ga
         if(AdaDiskon == "Ya"):
             # Memasukkan besar diskon
-            BesarDiskon = float(input("Masukkan besar diskonnya : "));
+            BesarDiskon = float(input("Masukkan besar diskonnya         : "));
 
 # Menentukan nama barang dan harga satuan
 if (KodeBrg == "PK01"):
@@ -55,7 +54,19 @@ if(BesarDiskon != 0):
 TotalBayar = HargaTotal - Diskon;
 
 # Input harga bayar
-Bayar = int(input("Masukkan uang pembayaran kamu : "));
+Bayar = int(input("Masukkan uang pembayaran kamu    : "));
+
+
+# validasi uang bayar
+if(Bayar < TotalBayar):
+    print("Maaf! Uang kamu kurang. Isi lagi!");
+    Bayar = int(input("Masukkan uang pembayaran kamu    : "));
+
+# menghitung uang kembalian
+Kembali = Bayar - TotalBayar;
+
+os.system("pause");
+os.system("cls");
 
 # menampilkan data yang dibeli beserta total bayar
 print("LAYAR MASUKAN");
@@ -65,28 +76,21 @@ print(f"Jumlah beli             : {Jumlah}");
 print(f"Ada Diskon [Ya/Tidak]   : {AdaDiskon}");
 print(f"Besar Diskon(%)         : {BesarDiskon}");
 
-# validasi uang bayar
-if(Bayar < TotalBayar):
-    print("Maaf! Uang kamu kurang. Isi lagi : ");
-    Bayar = int(input("Masukkan uang pembayaran kamu : "));
-
-# menghitung uang kembalian
-Kembali = Bayar - TotalBayar;
-
-os.system("pause");
-os.system("cls")
-
 print("LAYAR KELUARAN");
 print("--------------");
-print(f"Kode Barang                 : {KodeBrg}");
-print(f"Nama Barang                 : {NamaBrg}");
-print(f"Jumlah Beli                 : {Jumlah}");
-print(f"Harga Satuan                : {HargaSatuan}");
-print(f"Harga Total                 : {HargaTotal}");
-print(f"Diskon                      : {Diskon}");
+print(f"Kode Barang             : {KodeBrg}");
+print(f"Nama Barang             : {NamaBrg}");
+print(f"Jumlah Beli             : {Jumlah}");
+print(f"Harga Satuan            : {HargaSatuan:,}");
+print(f"Harga Total             : {HargaTotal:,}");
+if(BesarDiskon != 0):
+    print(f"Diskon {BesarDiskon}%            : {Diskon}");
+else :
+    print(f"Diskon {BesarDiskon}%               : {Diskon}");
+
 print("---------------------------------------");
-print(f"Bayar                       : {Bayar}");
-print(f"Uang Kembali                : {Kembali}");
+print(f"Bayar                   : {Bayar:,}");
+print(f"Uang Kembali            : {Kembali:,}");
 
 
 
