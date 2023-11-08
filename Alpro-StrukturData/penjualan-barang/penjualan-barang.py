@@ -7,7 +7,7 @@ Program : PenjualanBarang
 import os
 
 # memasukkan kode barang
-KodeBrg = str(input("Masukkan Kode Barang             : "));
+KodeBrg = str(input("Masukkan Kode Barang             : ")).upper();
 # validasi kode barang
 if((KodeBrg != "PK01") and (KodeBrg != "TS02") and (KodeBrg != "SP03") and (KodeBrg != "AK04")):
     print("Salah memasukkan kode barang!");
@@ -72,7 +72,7 @@ os.system("cls");
 print("LAYAR MASUKAN");
 print("-------------");
 print(f"Kode Barang             : {KodeBrg}");
-print(f"Jumlah beli             : {Jumlah}");
+print(f"Jumlah beli             : {Jumlah} pcs");
 print(f"Ada Diskon [Ya/Tidak]   : {AdaDiskon}");
 print(f"Besar Diskon(%)         : {BesarDiskon}");
 
@@ -81,16 +81,16 @@ print("--------------");
 print(f"Kode Barang             : {KodeBrg}");
 print(f"Nama Barang             : {NamaBrg}");
 print(f"Jumlah Beli             : {Jumlah}");
-print(f"Harga Satuan            : {HargaSatuan:,}");
-print(f"Harga Total             : {HargaTotal:,}");
+print(f"Harga Satuan            : Rp{HargaSatuan:,}");
+print(f"Harga Total             : Rp{HargaTotal:,}");
 if(BesarDiskon != 0):
-    print(f"Diskon {BesarDiskon}%            : {Diskon}");
+    print(f"Diskon {BesarDiskon}%            : Rp{Diskon:,}");
 else :
-    print(f"Diskon {BesarDiskon}%               : {Diskon}");
-
+    print(f"Diskon {BesarDiskon}%               : Rp{Diskon:,}");
+print(f"Total Bayar             : Rp{TotalBayar:,}")
 print("---------------------------------------");
-print(f"Bayar                   : {Bayar:,}");
-print(f"Uang Kembali            : {Kembali:,}");
+print(f"Bayar                   : Rp{Bayar:,}");
+print(f"Uang Kembali            : Rp{Kembali:,}");
 
 
 
